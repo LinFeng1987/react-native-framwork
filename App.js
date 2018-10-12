@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {View,StatusBar} from 'react-native';
+import {View, StatusBar} from 'react-native';
 import {StackNavigator} from 'react-navigation';
-
+import StackViewStyleInterpolator from "react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator";
 import Main from "./pages/Main";
 import Home from "./pages/Home";
 
@@ -28,10 +28,13 @@ const RootNavigator = StackNavigator({
                 textAlign: 'center'
             },
             headerRight: (
-                <View style={{height: 44, width: 55, justifyContent: 'center', paddingRight: 15}}/>
+                <View/>
             ),
-        },
 
+        },
+        transitionConfig: (() => ({
+            screenInterpolator: StackViewStyleInterpolator.forFadeFromBottomAndroid,
+        })),
 
     },
 );
@@ -41,7 +44,7 @@ export default class App extends Component {
     }*/
 
     render() {
-        return  <RootNavigator/>;
+        return <RootNavigator/>;
     }
 }
 // export default RootNavigator;

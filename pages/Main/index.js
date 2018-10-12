@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 
+import Header from '../../component/Header';
+
 export default class Main extends Component {
     static navigationOptions = {
         headerTitle: '首页',
@@ -15,10 +17,13 @@ export default class Main extends Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <StatusBar backgroundColor="#2d78f4" translucent={false} hidden={false} animated={true}/>
-                <Text>首页</Text>
-                <Text style={styles.Btn} onPress={() => navigate("Home")}>跳转到详情</Text>
+                <Header title="首页"></Header>
+                <View style={{flex: 1, justifyItems: "center", justifyContent: "center"}}>
+                    <Text>首页</Text>
+                    <Text style={styles.Btn} onPress={() => navigate("Home")}>跳转到详情</Text>
+                </View>
             </View>
         )
     }
